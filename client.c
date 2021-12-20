@@ -1,5 +1,3 @@
-
-//Authors: Tanisha Joshi, Nawal Cheema
 //Client Usage: client <IP address> <port number>
 //Citation: Linux man (7) unix
 #include <stdio.h>
