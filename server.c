@@ -21,7 +21,7 @@
 #define NAMELEN 32
 void * ignore();
 void renameClient();
-void atEndpoint();
+//void atEndpoint();
 int accept4(int socket, struct sockaddr *restrict address,
      socklen_t *restrict address_len, int flags);
 
@@ -41,6 +41,7 @@ Client *head = NULL;
 char *quit = "quit";
 char *name = "name";
 
+void *ignore() {}
 
 // ~ Message write attempt ~
 void tryWrite(char *m, Client *ptr){
@@ -137,7 +138,7 @@ char* str_Concat(const char *a, const char *b) {
 int verify(char *buf) {
     if(strlen(buf) >= 4) {
         int result = !strncmp(buf, name, strlen(name));
-        return !result;
+        return result;
     }
     return 0;
 }
@@ -257,7 +258,7 @@ int main(int argc, char *argv[]){
     
     
     while (1) {
-        atEndpoint(); //read from the port!
+        atEndPoint(); //read from the port!
         cfd = accept4(sfd, (struct sockaddr *) &peer_ad, &peer_adSize, SOCK_NONBLOCK);
         if (cfd != -1){
             Client *new = addClient(cfd);
@@ -272,3 +273,4 @@ int main(int argc, char *argv[]){
     }
     unlink(MY_SOCK_PATH);
 }
+
