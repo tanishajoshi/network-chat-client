@@ -1,6 +1,6 @@
 # Network Chat Client
 
-## This is a chat server that:
+## This chat server does the following:
 * Manages multiple concurrent connections. 
 * Performs asynchronous message passing between arbitrary numbers of clients
 * Handles concurrent, nonblocking I/O. 
